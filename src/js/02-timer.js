@@ -13,7 +13,9 @@ const refs = {
 
 refs.startBtn.disabled = true;
 
+let intervalId = null;
 let selectedDate = null;
+let currentDate = null;
 
 /*Метод onClose() з об'єкта параметрів викликається 
 щоразу під час закриття елемента інтерфейсу, 
@@ -23,12 +25,7 @@ let selectedDate = null;
 
 Якщо користувач вибрав дату в минулому, покажи window.alert()
  з текстом "Please choose a date in the future".
-Якщо користувач вибрав валідну дату (в майбутньому), 
-кнопка «Start» стає активною.
-Кнопка «Start» повинна бути неактивною доти, 
-доки користувач не вибрав дату в майбутньому.
-Натисканням на кнопку «Start» починається відлік часу 
-до обраної дати з моменту натискання.*/
+*/
 //обробка дати:
 //масив обраних дат
 //Метод getTime() повертає числове значення цієї дати 
@@ -50,9 +47,38 @@ flatpickr(refs.calendar, {
     }
   },
 });
+/*Якщо користувач вибрав валідну дату (в майбутньому), 
+кнопка «Start» стає активною.
+Кнопка «Start» повинна бути неактивною доти, 
+доки користувач не вибрав дату в майбутньому.
+Натисканням на кнопку «Start» починається відлік часу 
+до обраної дати з моменту натискання.*/
+  const timer = {
+  start() {
+    intervalId = setInterval(() => {
+      startBtn.disabled = true;
+      calendar.disabled = true;
+      currentDate = Date.now();
+      const delta = selectedDate - currentDate;
 
-const timer = 
-  
+      if (delta <= 1000) {
+        this.stop();
+        alert('Timer stopped!');
+        return;
+      }
+    }, 1000);
+  },
+
+  stop() {
+    clearInterval(intervalId);
+    this.intervalId = null;
+  },
+};
+
+refs.startBtn.addEventListener('click', () => {
+  timer.start();
+});
+
 
 function convertMs(ms) {
   // Number of milliseconds per unit of time
