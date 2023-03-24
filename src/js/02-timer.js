@@ -30,13 +30,12 @@ flatpickr(refs.dateInput, {
       selectedDate = selectedDates[0].getTime();
       refs.startBtn.disabled = false;
     }
-    console.log(selectedDates[0]);
   },
 });
 const timer = {
   start() {
     intervalId = setInterval(() => {
-      currentDate = Date.now();
+      currentDate = new Date().getTime();
       const delta = selectedDate - currentDate;
       updateTimer(convertMs(delta));
       if (delta <= 1000) {
