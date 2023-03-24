@@ -43,7 +43,7 @@ const timer = {
       updateTimer(convertMs(delta));
       if (delta <= 1000) {
         this.stop();
-        alert('Timer stopped!');
+        Report.failure('Timer stopped!');
         return;
       }
     }, 1000);
