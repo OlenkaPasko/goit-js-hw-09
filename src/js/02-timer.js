@@ -17,23 +17,23 @@ let intervalId = null;
 let selectedDate = null;
 let currentDate = null;
 
-flatpickr(calendar, {
+flatpickr(refs.calendar, {
   enableTime: true,
   time_24hr: true,
   defaultDate: new Date(),
   minuteIncrement: 1,
-  
+
   onClose(selectedDates) {
     if (selectedDates[0].getTime < Date.now()) {
       alert('Please choose a date in the future');
-    }
-    else {
+    } else {
       selectedDate = selectedDates[0].getTime();
       refs.startBtn.disabled = false;
     }
+    console.log(selectedDates[0]);
   },
 });
-  const timer = {
+const timer = {
   start() {
     intervalId = setInterval(() => {
       startBtn.disabled = true;
