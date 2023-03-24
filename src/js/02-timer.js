@@ -34,7 +34,7 @@ let selectedDate = null;
 //Метод getTime() повертає числове значення цієї дати 
 // Запис window.alert() зайвий, пишемо просто alert() або console.log()
 
-const options = {
+flatpickr(refs.calendar, {
   enableTime: true,
   time_24hr: true,
   defaultDate: new Date(),
@@ -42,18 +42,19 @@ const options = {
   
   onClose(selectedDates) {
     if (selectedDates[0].getTime < Date.now()) {
-     Report.failure('Please choose a date in the future'); 
+      alert('Please choose a date in the future');
     }
     else {
-    selectedDate = selectedDates[0].getTime();
+      selectedDate = selectedDates[0].getTime();
       refs.startBtn.disabled = false;
     }
-    console.log(selectedDates[0]);
   },
-    }
+});
+
+const timer = 
   
 
-/*function convertMs(ms) {
+function convertMs(ms) {
   // Number of milliseconds per unit of time
   const second = 1000;
   const minute = second * 60;
