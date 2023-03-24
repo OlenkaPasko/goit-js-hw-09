@@ -17,21 +17,7 @@ let intervalId = null;
 let selectedDate = null;
 let currentDate = null;
 
-/*Метод onClose() з об'єкта параметрів викликається 
-щоразу під час закриття елемента інтерфейсу, 
-який створює flatpickr. Саме у ньому варто обробляти дату, 
-обрану користувачем. Параметр selectedDates - 
-це масив обраних дат, тому ми беремо перший елемент.
-
-Якщо користувач вибрав дату в минулому, покажи window.alert()
- з текстом "Please choose a date in the future".
-*/
-//обробка дати:
-//масив обраних дат
-//Метод getTime() повертає числове значення цієї дати 
-// Запис window.alert() зайвий, пишемо просто alert() або console.log()
-
-flatpickr(refs.calendar, {
+flatpickr(calendar, {
   enableTime: true,
   time_24hr: true,
   defaultDate: new Date(),
@@ -47,12 +33,6 @@ flatpickr(refs.calendar, {
     }
   },
 });
-/*Якщо користувач вибрав валідну дату (в майбутньому), 
-кнопка «Start» стає активною.
-Кнопка «Start» повинна бути неактивною доти, 
-доки користувач не вибрав дату в майбутньому.
-Натисканням на кнопку «Start» починається відлік часу 
-до обраної дати з моменту натискання.*/
   const timer = {
   start() {
     intervalId = setInterval(() => {
@@ -60,7 +40,7 @@ flatpickr(refs.calendar, {
       calendar.disabled = true;
       currentDate = Date.now();
       const delta = selectedDate - currentDate;
-
+      updateTimer(convertMs(delta));
       if (delta <= 1000) {
         this.stop();
         alert('Timer stopped!');
@@ -79,21 +59,22 @@ refs.startBtn.addEventListener('click', () => {
   timer.start();
 });
 
+function updateTimer({ days, hours, minutes, seconds }) {
+  refs.dataDays.textContent = `${days}`;
+  refs.dataHours.textContent = `${hours}`;
+  refs.dataMinutes.textContent = `${minutes}`;
+  refs.dataSeconds.textContent = `${seconds}`;
+}
 
 function convertMs(ms) {
-  // Number of milliseconds per unit of time
   const second = 1000;
   const minute = second * 60;
   const hour = minute * 60;
   const day = hour * 24;
 
-  // Remaining days
   const days = Math.floor(ms / day);
-  // Remaining hours
   const hours = Math.floor((ms % day) / hour);
-  // Remaining minutes
   const minutes = Math.floor(((ms % day) % hour) / minute);
-  // Remaining seconds
   const seconds = Math.floor((((ms % day) % hour) % minute) / second);
 
   return { days, hours, minutes, seconds };
