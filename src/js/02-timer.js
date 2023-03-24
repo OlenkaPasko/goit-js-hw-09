@@ -2,39 +2,16 @@ import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 import { Report } from 'notiflix/build/notiflix-report-aio';
 
-class Timer {
-  #id = null;
-  constructor(date, node) {
-    this.date = date;
-    this.node = node;
+const refs = {
+  dateInput: document.querySelector('#datetime-picker'),
+  startBtn: document.querySelector('button[data-start]'),
+  dataDays: document.querySelector('data-days'),
+  dataHours: document.querySelector('data-hours'),
+  dataMinutes: document.querySelector('data-minute'),
+  dataSeconds: document.querySelector('data-seconds'),
+};
 
-    start = () => {
-      if (this.isActive) return;
-      const timer = setInterval(() => {
-        this.#id = timer;
-        //get distance
-        //format distanse
-        //add distanse to node
-      }, 1000);
-    };
 
-    stop = () => {
-      if (this.isActive) {
-        clearInterval(this.#id);
-        this.#id = null;
-      }
-    };
-
-    isActive = () => !!this.#id; //нічого не приймає;якщо!this.id-то не є!this.id;
-    //якщо ставиться ще одне "не-!!"!!this.#id.Один знак оклику перетворює
-    //рядок у булеве значення і повертає зворотнє.Одне "не"повертає true.
-    //Ще один знак оклику зробить напавки.Два знаки оклику - це подвійне НЕ.Якщо якась змінна не булева,а пертворювати потрібно в буль.
-    //
-  }
-  #getDistance = () => {
-    const currentDate = Date.now().getTime();
-  }
-}
 
 /*const options = {
   enableTime: true,
@@ -45,20 +22,6 @@ class Timer {
     console.log(selectedDates[0]);
   },
 };*/
-/*Приклад з додаткових матеріалів,модуль 9,урок 1,  */
-//кількість зворотнього відліку
-/*const timer = targetDate => {
-    setInterval(() => {
-    renderTime(+new Date(targetDate));
-},1000);
-};
-
-const renderTime = (string) => {
-    document.querySelector('datetime-picker').innerText = string;
-}
-
-timer(new Date('2023/06/05'));*/
-
 /*function convertMs(ms) {
   // Number of milliseconds per unit of time
   const second = 1000;
