@@ -25,7 +25,7 @@ flatpickr(refs.dateInput, {
 
   onClose(selectedDates) {
     if (selectedDates[0].getTime < Date.now()) {
-      alert('Please choose a date in the future');
+      Report.failure('Please choose a date in the future');
     } else {
       selectedDate = selectedDates[0].getTime();
       refs.startBtn.disabled = false;
@@ -41,7 +41,6 @@ const timer = {
       updateTimer(convertMs(delta));
       if (delta <= 1000) {
         this.stop();
-        Report.failure('Timer stopped!');
         return;
       }
     }, 1000);
@@ -63,7 +62,9 @@ function updateTimer({ days, hours, minutes, seconds }) {
   refs.dataMinutes.textContent = `${minutes}`;
   refs.dataSeconds.textContent = `${seconds}`;
 }
-
+function addLeadingZero(value) {
+  return String(value).padStart(2, '0');
+}
 function convertMs(ms) {
   const second = 1000;
   const minute = second * 60;

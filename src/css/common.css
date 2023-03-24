@@ -22,7 +22,7 @@ display: flex;
 
 .field {
 display: flex;
-font-size: 48px;
+font-size: 20px;
 }
 .value {
   margin-left: 10px;
@@ -31,7 +31,3 @@ font-size: 48px;
   text-align: center;
 }
 
-/*.label {
-  display: block;
-
-}*/
