@@ -3,7 +3,7 @@ import 'flatpickr/dist/flatpickr.min.css';
 import { Report } from 'notiflix/build/notiflix-report-aio';
 
 const refs = {
-  dateInput: document.querySelector('#datetime-picker'),
+  dateInput: document.querySelector('input#datetime-picker'),
   startBtn: document.querySelector('button[data-start]'),
   dataDays: document.querySelector('data-days'),
   dataHours: document.querySelector('data-hours'),
