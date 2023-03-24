@@ -17,7 +17,7 @@ let intervalId = null;
 let selectedDate = null;
 let currentDate = null;
 
-flatpickr(refs.calendar, {
+flatpickr(refs.dateInput, {
   enableTime: true,
   time_24hr: true,
   defaultDate: new Date(),
@@ -37,7 +37,7 @@ const timer = {
   start() {
     intervalId = setInterval(() => {
       startBtn.disabled = true;
-      calendar.disabled = true;
+       dateInput.disabled = true;
       currentDate = Date.now();
       const delta = selectedDate - currentDate;
       updateTimer(convertMs(delta));
