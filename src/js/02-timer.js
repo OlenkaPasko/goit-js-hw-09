@@ -36,8 +36,6 @@ flatpickr(refs.dateInput, {
 const timer = {
   start() {
     intervalId = setInterval(() => {
-      startBtn.disabled = true;
-       dateInput.disabled = true;
       currentDate = Date.now();
       const delta = selectedDate - currentDate;
       updateTimer(convertMs(delta));
