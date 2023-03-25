@@ -24,7 +24,7 @@ img {
 .value {
   margin-left: 10px;
   margin-right: 10px;
-  font-size: 10px;
+  font-size: 20px;
   color: yellow;
 }
 
@@ -34,8 +34,6 @@ img {
   font-size: 20px;
 }
 
-.lable {
-  display: flex;
-  padding-top: 10px;
+.label {
   color: blue;
 }
