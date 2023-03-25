@@ -3,8 +3,8 @@ import 'flatpickr/dist/flatpickr.min.css';
 import { Report } from 'notiflix/build/notiflix-report-aio';
 
 const refs = {
-  dateInput: document.querySelector('#datetime-picker'),
   startBtn: document.querySelector('button[data-start]'),
+  dateInput: document.querySelector('#datetime-picker'),
   dataDays: document.querySelector('[data-days]'),
   dataHours: document.querySelector('[data-hours]'),
   dataMinutes: document.querySelector('[data-minutes]'),
@@ -62,9 +62,7 @@ function updateTimer({ days, hours, minutes, seconds }) {
   refs.dataMinutes.textContent = `${minutes}`;
   refs.dataSeconds.textContent = `${seconds}`;
 }
-/*function addLeadingZero(value) {
-  return String(value).padStart(2, '0');
-}*/
+
 function convertMs(ms) {
   const second = 1000;
   const minute = second * 60;
