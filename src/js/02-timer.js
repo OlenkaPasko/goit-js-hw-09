@@ -30,7 +30,6 @@ flatpickr(refs.dateInput, {
       selectedDate = selectedDates[0].getTime();
       refs.startBtn.disabled = false;
     }
-    console.log(selectedDates[0]);
   },
 });
 const timer = {
@@ -63,9 +62,9 @@ function updateTimer({ days, hours, minutes, seconds }) {
   refs.dataMinutes.textContent = `${minutes}`;
   refs.dataSeconds.textContent = `${seconds}`;
 }
-function addLeadingZero(value) {
+/*function addLeadingZero(value) {
   return String(value).padStart(2, '0');
-}
+}*/
 function convertMs(ms) {
   const second = 1000;
   const minute = second * 60;
