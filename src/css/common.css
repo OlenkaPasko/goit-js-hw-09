@@ -28,15 +28,16 @@ display: inline-block;
 .value {
   margin-left: 10px;
   margin-right: 10px;
-  background: yellow;
+  font-size: 10px;
+  color: yellow;
 }
 .field {
-display: inline-block;
+display:inline-grid;
 padding: 5px;
 font-size: 20px;
 }
 .lable {
   display: flex;
   padding-top: 10px;
-  background: blue;
+  color: blue;
 }
