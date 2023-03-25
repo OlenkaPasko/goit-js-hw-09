@@ -16,6 +16,11 @@ img {
   display: block;
   max-width: 100%;
 }
+
+.flatpicar-input {
+padding: 10px;
+
+}
 .timer {
 display: inline-block;
 }
@@ -23,15 +28,15 @@ display: inline-block;
 .value {
   margin-left: 10px;
   margin-right: 10px;
-  background-color: yellow;
+  background: yellow;
 }
 .field {
 display: inline-block;
-padding: 15px;
-background-color: blue;
+padding: 5px;
 font-size: 20px;
 }
 .lable {
   display: flex;
   padding-top: 10px;
+  background: blue;
 }
