@@ -28,7 +28,7 @@ flatpickr(refs.dateInput, {
       Report.failure('Please choose a date in the future');
     } else {
       selectedDate = selectedDates[0].getTime();
-      refs.btnStart.disabled = false;
+      refs.startBtn.disabled = false;
     }
     console.log(selectedDates[0]);
   }
