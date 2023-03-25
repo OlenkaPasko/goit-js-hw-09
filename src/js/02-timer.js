@@ -5,10 +5,10 @@ import { Report } from 'notiflix/build/notiflix-report-aio';
 const refs = {
   dateInput: document.querySelector('input#datetime-picker'),
   startBtn: document.querySelector('button[data-start]'),
-  dataDays: document.querySelector('data-days'),
-  dataHours: document.querySelector('data-hours'),
-  dataMinutes: document.querySelector('data-minute'),
-  dataSeconds: document.querySelector('data-seconds'),
+  dataDays: document.querySelector('[data-days]'),
+  dataHours: document.querySelector('[data-hours]'),
+  dataMinutes: document.querySelector('[data-minute]'),
+  dataSeconds: document.querySelector('[data-seconds]'),
 };
 
 refs.startBtn.disabled = true;
@@ -38,6 +38,7 @@ const timer = {
       currentDate = new Date().getTime();
       const delta = selectedDate - currentDate;
       updateTimer(convertMs(delta));
+      
       if (delta <= 1000) {
         this.stop();
         return;
