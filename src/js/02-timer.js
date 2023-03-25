@@ -1,10 +1,11 @@
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 import { Report } from 'notiflix/build/notiflix-report-aio';
+document.body.style.backgroundColor = '#ece5da';
 
 const refs = {
-  startBtn: document.querySelector('button[data-start]'),
   dateInput: document.querySelector('#datetime-picker'),
+  startBtn: document.querySelector('button[data-start]'),
   dataDays: document.querySelector('[data-days]'),
   dataHours: document.querySelector('[data-hours]'),
   dataMinutes: document.querySelector('[data-minutes]'),
@@ -38,7 +39,7 @@ const timer = {
       currentDate = new Date().getTime();
       const delta = selectedDate - currentDate;
       updateTimer(convertMs(delta));
-      
+
       if (delta <= 1000) {
         this.stop();
         return;
