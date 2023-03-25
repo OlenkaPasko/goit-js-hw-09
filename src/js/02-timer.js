@@ -27,8 +27,8 @@ flatpickr(refs.dateInput, {
     if (selectedDate < Date.now()) {
      refs.startBtn.disabled = true; 
       Report.failure('Please choose a date in the future');
+      return;
     } else {
-      selectedDate = selectedDates[0].getTime();
       refs.startBtn.disabled = false;
     }
   },
