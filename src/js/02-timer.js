@@ -30,6 +30,7 @@ flatpickr(refs.dateInput, {
       selectedDate = selectedDates[0].getTime();
       refs.startBtn.disabled = false;
     }
+    console.log(selectedDates[0]);
   },
 });
 const timer = {

@@ -30,4 +30,7 @@ font-size: 20px;
   padding-bottom: 15px;
   text-align: center;
 }
-
+.lable {
+  display: flex;
+  padding-top: 10px;
+}
