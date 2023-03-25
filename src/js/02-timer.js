@@ -25,13 +25,13 @@ flatpickr(refs.dateInput, {
 
   onClose(selectedDates) {
     if (selectedDates[0].getTime() < Date.now()) {
-      refs.startBtn.disabled = true;
       Report.failure('Please choose a date in the future');
-      return;
+    } else {
+      selectedDate = selectedDates[0].getTime();
+      refs.btnStart.disabled = false;
     }
-    selectedDate = selectedDates[0].getTime();
-    refs.btnStart.disabled = false;
-  },
+    console.log(selectedDates[0]);
+  }
 });
 const timer = {
   start() {
