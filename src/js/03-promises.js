@@ -7,7 +7,7 @@ const refs = {
   step: document.querySelector('[name="step"]'),
   amount: document.querySelector('[name="amount"]'),
 };
-refs.form.addEventListener('click');
+refs.form.addEventListener('click', promiseCreate);
 
 function createPromise(position, delay) {
   return new Promise((resolve, reject) => {
@@ -21,7 +21,7 @@ function createPromise(position, delay) {
     }, delay);
   });
 }
-function onPromiseCreate(event) {
+function promiseCreate(event) {
   event.preventDefault();
 }
 
