@@ -31,7 +31,7 @@ flatpickr(refs.dateInput, {
       refs.startBtn.disabled = false;
     }
     console.log(selectedDates[0]);
-  }
+  },
 });
 const timer = {
   start() {
