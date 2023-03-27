@@ -22,7 +22,6 @@ function createPromise(position, delay) {
 }
 function promiseCreate(event) {
   event.preventDefault();
-}
 
 let valueDelay = Number(refs.delay.value);
 let step = Number(refs.step.value);
@@ -38,5 +37,6 @@ for (let i = 1; i <= amount; i += 1) {
    .catch(({ position, delay }) => {
      Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`, options);
    });
-    e.currentTarget.reset();
-  }
+    event.currentTarget.reset();
+}
+}
