@@ -28,7 +28,11 @@ function promiseCreate(event) {
   let amount = Number(refs.amount.value);
 
   for (let i = 1; i <= amount; i += 1) {
-    valueDelay += step;
+    if (i === 1) {
+      valueDelay;
+    } else {
+      valueDelay += step;
+    }
 
     createPromise(i, valueDelay)
       .then(({ position, delay }) => {
