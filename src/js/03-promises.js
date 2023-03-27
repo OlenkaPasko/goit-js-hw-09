@@ -23,20 +23,20 @@ function createPromise(position, delay) {
 function promiseCreate(event) {
   event.preventDefault();
 
-let valueDelay = Number(refs.delay.value);
-let step = Number(refs.step.value);
-let amount = Number(refs.amount.value);
+  let valueDelay = Number(refs.delay.value);
+  let step = Number(refs.step.value);
+  let amount = Number(refs.amount.value);
 
-for (let i = 1; i <= amount; i += 1) {
-  valueDelay += step;
-  
- createPromise(i, valueDelay)
-   .then(({ position, delay }) => {
-     Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
-   })
-   .catch(({ position, delay }) => {
-     Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
-   });
+  for (let i = 1; i <= amount; i += 1) {
+    valueDelay += step;
+
+    createPromise(i, valueDelay)
+      .then(({ position, delay }) => {
+        Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
+      })
+      .catch(({ position, delay }) => {
+        Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
+      });
     event.currentTarget.reset();
-}
+  }
 }
