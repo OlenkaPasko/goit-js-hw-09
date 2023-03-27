@@ -32,10 +32,10 @@ for (let i = 1; i <= amount; i += 1) {
   
  createPromise(i, valueDelay)
    .then(({ position, delay }) => {
-     Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`, options);
+     Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
    })
    .catch(({ position, delay }) => {
-     Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`, options);
+     Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
    });
     event.currentTarget.reset();
 }
